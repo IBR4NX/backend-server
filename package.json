@@ -1,0 +1,26 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "nodejs devlop by ibovs",
+  "license": "ISC",
+  "author": "Ibovs",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "dev": "node app.js",
+    "start": "nodemon app.js",
+    "tst": "nodemon auth/test.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-async-handler": "^1.2.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.1.5",
+    "nodemon": "^3.1.11",
+    "path": "^0.12.7"
+  }
+}
