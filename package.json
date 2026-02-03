@@ -7,15 +7,16 @@
   "type": "module",
   "main": "app.js",
   "scripts": {
-    "dev": "node app.js",
     "start": "node app.js",
-    "tst": "nodemon auth/test.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon app.js",
+    "test": "nodemon auth/test.js",
+    "tst": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
     "bcrypt": "^6.0.0",
     "cors": "^2.8.6",
     "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
     "express": "^5.2.1",
     "express-async-handler": "^1.2.0",
     "jsonwebtoken": "^9.0.3",

@@ -30,7 +30,7 @@ const refreshAccessToken = asyncHandler(async (req, res) => {
   const accessToken = jwt.sign(
     { id: user._id, role: user.role },
     JWT_ACCESS_SECRET,
-    { expiresIn: "30m" }
+    { expiresIn: "3m" }
   );
 
   res.cookie("accessToken", accessToken, {

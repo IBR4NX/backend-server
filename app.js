@@ -5,10 +5,22 @@ import router from './routes/router.js';
 import cors from 'cors';
 console.clear()
 import './database/mongooseDB.js';
+import { fileURLToPath } from 'url'
+import path from 'path'
 const app = express();
 app.use(express.json());
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename);
 app.use(cors({origin:corsUrl,optionsSuccessStatus:200}));
+app.use(express.static(path.join(__dirname, "./views/dist")));
 app.use('/api', router);
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.get('/test', (req, res) => {
+  res.render('index.ejs');
+  res.end();  
+});
+ 
 
 // !important! 
 // you need to install the following libraries |express|[dotenv > if required]
@@ -19,7 +31,6 @@ app.use((err, req, res, next) => {
   if (environment === "production") {
   res.status(status).json({
     message: err.message,
-    // stack: err.stack
   });
 } else {
   res.status(status).json({
