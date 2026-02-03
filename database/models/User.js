@@ -5,7 +5,8 @@ import convert from '../../core/convert.js';
 const { DOCUMENT_NAME, COLLECTION_NAME } = convert("user");
 
 const schema = new Schema(
-  {
+  { 
+    
     name: { type: String, required: [true,"  required"] },
     
     email: { type: String, required: true,
