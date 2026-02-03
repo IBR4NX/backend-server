@@ -18,7 +18,7 @@ router.get("/me",auth,me);
 import addproduct from "./products/add.js";
 import displayProducts from './products/display.js'
 router.post('/addProduct',auth, addproduct)
-router.post('/displayProducts',auth, displayProducts)
+router.get('/displayProducts',auth, displayProducts)
 
 
 router.use(/.*/, auth,asyncHandler( async (req, res)=>{
