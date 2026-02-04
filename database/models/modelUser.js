@@ -32,5 +32,5 @@ const schema = new Schema(
   
   schema.index({ _id: 1, status: 1 });
   schema.index({ status: 1 });
-  const User = model(DOCUMENT_NAME, schema, COLLECTION_NAME) 
-  export default User;  
+  const modelUser = model(DOCUMENT_NAME, schema, COLLECTION_NAME) 
+  export default modelUser;  

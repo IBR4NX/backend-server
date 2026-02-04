@@ -9,8 +9,10 @@ import signup from "./access/signup.js";
 import login from "./access/login.js";
 import me from "./access/me.js";
 import auth from '../auth/jwt.js'
-router.use("/signup", signup);
+router.post("/signup", signup);
 router.use("/login", login);
+import { refreshAccessToken } from "./access/token.js";
+router.post('/refresh-token',refreshAccessToken);
 
 import admin from "./admin/display.js";
 router.use("/admin",auth, admin);

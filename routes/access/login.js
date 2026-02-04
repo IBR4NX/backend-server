@@ -1,19 +1,16 @@
 import asyncHandler from "express-async-handler";
-import { Router } from "express";
 import bcrypt from "bcrypt";
-import User from "../../database/models/User.js";
-import { refreshAccessToken, generateTokens } from "./token.js";
+import modelUser from "../../database/models/modelUser.js";
+import { generateTokens } from "./token.js";
 import { validateEmail, validatePassword } from "../../core/validate.js";
 
-const router = Router();
-router.post('/refresh-token',refreshAccessToken);
 
-router.post(/.*/,asyncHandler(async (req, res) => {
+const login = asyncHandler(async (req, res) => {
     const { email, password } = req.body;
     validateEmail(email);
     validatePassword(password);
     res.status(400);
-    const user = await User.findOne({ email: email, status: true })
+    const user = await modelUser.findOne({ email: email, status: true })
       .select(" +password +roles")
       .lean()
       .exec();
@@ -31,7 +28,6 @@ router.post(/.*/,asyncHandler(async (req, res) => {
       token: accessToken,
       refreshToken: refreshToken,
     });
-  })
-);
+  });
 
-export default router;
+export default login;
